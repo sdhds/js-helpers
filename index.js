@@ -1,7 +1,7 @@
-import generateUniqId from 'helpers/generate-uniq-id';
-import httpCodeErrors from 'helpers/http-code-errors';
+const generateUniqId = require('./generate-uniq-id');
+const httpCodeErrors = require('./http-code-errors');
 
-export {
+module.exports = {
 	generateUniqId,
 	httpCodeErrors
 }

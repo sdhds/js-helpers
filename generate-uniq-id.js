@@ -1,7 +1,7 @@
-import uuidv1 from 'uuid/v1';
-import uuidv5 from 'uuid/v5';
+const uuidv1 = require('uuid/v1');
+const uuidv5 = require('uuid/v5');
 
-export default (data) => {
+module.exports = (data) => {
 	if (!data || typeof data === 'function') {
 		throw new Error('Not valid data for ID'); // throw error and return
 	}

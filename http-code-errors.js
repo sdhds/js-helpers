@@ -1,4 +1,4 @@
-import generateUniqId from 'helpers/generate-uniq-id';
+const generateUniqId = require('./generate-uniq-id');
 
 const errorsMessages = [
 	{
@@ -124,7 +124,7 @@ const undefinedError = () => {
 	}
 }
 
-export default (type) => {
+module.exports = (type) => {
 	let formatedMessage;
 	if (type === undefined) {
 		formatedMessage = undefinedError();
