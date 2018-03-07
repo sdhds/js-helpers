@@ -1,7 +1,7 @@
 const httpCodeErrors = require('./http-code-errors');
 
-module.exports = (res, type, stackTrace) => {
-	const error = httpCodeErrors(type);
+module.exports = (req, res, type, stackTrace) => {
+	const error = httpCodeErrors(type, req.id);
 	if (error.code != 404) {
 		const logingError = error;
 		if (stackTrace) {
