@@ -1,8 +1,7 @@
+const timer = require('./timer');
+
 module.exports = () => {
-	let d = new Date().getTime();
-	if (typeof performance !== 'undefined' && typeof performance.now === 'function') {
-		d += performance.now(); //use high-precision timer if available
-	}
+	let d = timer();
 	return 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
 		const r = (d + Math.random() * 16) % 16 | 0;
 		d = Math.floor(d / 16);
