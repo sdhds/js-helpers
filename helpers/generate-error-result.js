@@ -1,5 +1,5 @@
 const httpCodeErrors = require('./http-code-errors');
-const generateReqId = require('./helpers/generate-req-id');
+const generateReqId = require('./generate-req-id');
 
 module.exports = (req, res, type, stackTrace) => {
 	let id = req.headers['x-request-id'];
