@@ -24,6 +24,11 @@ const errorsMessages = [
 		type: 'UserIdMissing',
 		message: 'User ID is required'
 	}, {
+		// all requests from front must to have propper X-Request-ID header
+		code: 400,
+		type: 'BadRequestId',
+		message: 'Invalid request'
+	}, {
 		// it's custom error, as we don't want to show outside error details
 		// use it only when you get ConditionalCheckFailedException from dynamoose
 		code: 400,
