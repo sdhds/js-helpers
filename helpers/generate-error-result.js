@@ -12,8 +12,6 @@ module.exports = (req, res, type, stackTrace) => {
 				method: req.method,
 				originalUrl: req.originalUrl,
 				ip: req.ip,
-				params: JSON.stringify(req.params),
-				query: JSON.stringify(req.query)
 			}
 		)
 	}
