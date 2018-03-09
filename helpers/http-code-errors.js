@@ -115,7 +115,6 @@ const errorsMessages = [
 ]
 
 const addServiceInfo = (data) => {
-	data.id = generateUniqId(data);
 	data.time = new Date().toISOString();
 	return data;
 }
@@ -129,7 +128,7 @@ const undefinedError = () => {
 	}
 }
 
-module.exports = (type) => {
+module.exports = (type, id) => {
 	let formatedMessage;
 	if (type === undefined) {
 		formatedMessage = undefinedError();
@@ -139,5 +138,6 @@ module.exports = (type) => {
 			formatedMessage = undefinedError();
 		}
 	}
+	formatedMessage.id = id;
 	return addServiceInfo(formatedMessage);
 }
