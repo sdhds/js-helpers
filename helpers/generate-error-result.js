@@ -9,13 +9,11 @@ module.exports = (req, res, type, stackTrace) => {
 				type: 'InteractionError',
 				message: 'X-Request-ID is not defined in request',
 				id: id,
-				info: `
-			req.method: ${req.method},
-			req.originalUrl: ${req.originalUrl},
-			req.ip: ${req.ip},
-			req.params: ${req.params},
-			req.query: ${req.query}
-			`
+				method: req.method,
+				originalUrl: req.originalUrl,
+				ip: req.ip,
+				params: JSON.stringify(req.params),
+				query: JSON.stringify(req.query)
 			}
 		)
 	}
