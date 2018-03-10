@@ -3,9 +3,9 @@ const generateReqId = require('./generate-req-id');
 
 module.exports = (req, res, type, stackTrace) => {
 	let id = req.headers['x-request-id'];
-	const regex = /\b[A-Z0-9]{32}$/g;
-	// we use "id.charAt(12) != 4" to check UUID version. It must be 4
-	if (!id || id.length != 32 || !regex.test(id) || id.charAt(12) != 4) {
+	// passed only on our custom UUIDv4 generation
+	const regex = /^[0-9A-F]{12}4[0-9A-F]{3}[89ab][0-9A-F]{15}$/;
+	if (!regex.test(id)) {
 		id = generateReqId();
 		if (req.method != 'GET')
 			console.error({
