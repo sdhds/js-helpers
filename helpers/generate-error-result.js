@@ -1,11 +1,11 @@
 const httpCodeErrors = require('./http-code-errors');
 const generateReqId = require('./generate-req-id');
+const regexUUIDv4Custom = require('./regex').UUIDv4Custom;
 
 module.exports = (req, res, type, stackTrace) => {
 	let id = req.headers['x-request-id'];
 	// passed only on our custom UUIDv4 generation
-	const regex = /^[0-9A-F]{12}4[0-9A-F]{3}[89ab][0-9A-F]{15}$/;
-	if (!regex.test(id)) {
+	if (!regexUUIDv4Custom.test(id)) {
 		id = generateReqId();
 		if (req.method != 'GET')
 			console.error({
