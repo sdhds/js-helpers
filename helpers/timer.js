@@ -1,6 +1,6 @@
 let getTime = null;
 
-if (typeof process !== 'undefined' && process.hrtime !== undefined && (!process.versions || process.versions.electron === undefined)) {
+if (typeof process !== 'undefined' && process.hrtime !== undefined) {
   getTime = () => {
     const time = process.hrtime();
 
