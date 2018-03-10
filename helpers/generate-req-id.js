@@ -1,7 +1,7 @@
 const timer = require('./timer');
 
 module.exports = () => {
-	let d = timer();
+	let d = timer.getTime();
 	return 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
 		const r = (d + Math.random() * 16) % 16 | 0;
 		d = Math.floor(d / 16);
