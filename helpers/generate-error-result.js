@@ -3,7 +3,8 @@ const generateReqId = require('./generate-req-id');
 
 module.exports = (req, res, type, stackTrace) => {
 	let id = req.headers['x-request-id'];
-	if (!id) {
+	const regex = /\b[A-Z0-9]{32}$/g;
+	if (!id || id.length != 32 || !regex.test(id)) {
 		id = generateReqId();
 		console.error({
 				type: 'InteractionError',
