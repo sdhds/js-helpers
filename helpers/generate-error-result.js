@@ -7,15 +7,16 @@ module.exports = (req, res, type, stackTrace) => {
 	// we use "id.charAt(12) != 4" to check UUID version. It must be 4
 	if (!id || id.length != 32 || !regex.test(id) || id.charAt(12) != 4) {
 		id = generateReqId();
-		console.error({
-				type: 'InteractionError',
-				message: 'X-Request-ID is not defined in request',
-				id: id,
-				method: req.method,
-				originalUrl: req.originalUrl,
-				ip: req.ip,
-			}
-		)
+		if (req.method != 'GET')
+			console.error({
+					type: 'InteractionError',
+					message: 'X-Request-ID is not defined in request',
+					id: id,
+					method: req.method,
+					originalUrl: req.originalUrl,
+					ip: req.ip,
+				}
+			)
 	}
 	const error = httpCodeErrors(type, id);
 	if (error.code != 404) {
