@@ -35,6 +35,10 @@ const errorsMessages = [
 		type: 'ConditionalCheckFailedException',
 		message: 'The conditional request failed'
 	}, {
+		code: 400,
+		type: 'TemplateMissing',
+		message: 'Template not exist'
+	}, {
 		// fallback for all requests, except GET. If GET, please use 302 redirect to auth page
 		code: 401,
 		type: 'Unauthorized',
