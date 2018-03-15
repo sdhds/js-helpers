@@ -4,6 +4,7 @@ const httpCodeErrors = require('./helpers/http-code-errors');
 const generateErrorResult = require('./helpers/generate-error-result');
 const validateReqData = require('./helpers/validate-req-data');
 const cleanResData = require('./helpers/clean-res-data');
+const isArrayOfIdsValid = require('./helpers/is-array-of-ids-valid');
 const regex = require('./helpers/regex');
 
 module.exports = {
@@ -13,5 +14,6 @@ module.exports = {
 	generateErrorResult,
 	validateReqData,
 	cleanResData,
+	isArrayOfIdsValid,
 	regex
 }
