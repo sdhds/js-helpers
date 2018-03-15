@@ -1,4 +1,4 @@
-const regex = require('./helpers/regex');
+const regex = require('./regex');
 const arrayHasDuplicates = require('array-has-duplicates');
 const idsIsValid = (ids) => {
 	for (let i = 0; i < ids.length; i++) {
