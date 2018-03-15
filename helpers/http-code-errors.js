@@ -35,6 +35,12 @@ const errorsMessages = [
 		type: 'ConditionalCheckFailedException',
 		message: 'The conditional request failed'
 	}, {
+		// it's custom error, as we don't want to show outside error details
+		// use it only when you get InvalidParameterType from dynamoose
+		code: 400,
+		type: 'InvalidParameterType',
+		message: 'Wrong parameter type provided'
+	}, {
 		code: 400,
 		type: 'TemplateMissing',
 		message: 'Template not exist'
