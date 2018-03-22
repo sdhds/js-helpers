@@ -1,5 +1,5 @@
 module.exports = (data, whatToKeep) => {
-	if (Array.isArray(whatToRemove) || whatToRemove.length) {
+	if (Array.isArray(whatToKeep) || whatToKeep.length) {
 		Object.keys(data).forEach((key) => {
             if (whatToKeep.indexOf(key) === -1) {
                 delete data[key];
