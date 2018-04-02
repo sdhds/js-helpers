@@ -4,6 +4,7 @@ const regexUUIDv4Custom = require('./regex').UUIDv4Custom;
 
 module.exports = (req, res, type, stackTrace) => {
 	let id = req.headers['x-request-id'];
+	const serverName = process.env.MY_POD_NAME;
 	// passed only on our custom UUIDv4 generation
 	if (!regexUUIDv4Custom.test(id)) {
 		id = generateReqId();
@@ -11,14 +12,15 @@ module.exports = (req, res, type, stackTrace) => {
 			console.error({
 					type: 'InteractionError',
 					message: 'X-Request-ID is not defined in request',
-					id: id,
+					id,
+					serverName,
 					method: req.method,
 					originalUrl: req.originalUrl,
 					ip: req.ip,
 				}
 			)
 	}
-	const error = httpCodeErrors(type, id);
+	const error = httpCodeErrors(type, id, serverName);
 	if (error.code != 404) {
 		const logingError = error;
 		if (stackTrace) {
