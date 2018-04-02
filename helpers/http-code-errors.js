@@ -138,7 +138,7 @@ const undefinedError = () => {
 	}
 }
 
-module.exports = (type, id) => {
+module.exports = (type, id, serverName) => {
 	let formatedMessage;
 	if (type === undefined) {
 		formatedMessage = undefinedError();
@@ -149,5 +149,6 @@ module.exports = (type, id) => {
 		}
 	}
 	formatedMessage.id = id;
+	formatedMessage.serverName = serverName; // can be undefined
 	return addServiceInfo(formatedMessage);
 }
