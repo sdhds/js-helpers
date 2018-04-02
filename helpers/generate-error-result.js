@@ -1,10 +1,11 @@
 const httpCodeErrors = require('./http-code-errors');
 const generateReqId = require('./generate-req-id');
 const regexUUIDv4Custom = require('./regex').UUIDv4Custom;
+const serverName = require('minimist')(process.argv.slice(2))['MY_POD_NAME'];
 
 module.exports = (req, res, type, stackTrace) => {
 	let id = req.headers['x-request-id'];
-	const serverName = process.env.MY_POD_NAME;
+
 	// passed only on our custom UUIDv4 generation
 	if (!regexUUIDv4Custom.test(id)) {
 		id = generateReqId();
