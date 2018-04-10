@@ -98,6 +98,10 @@ const errorsMessages = [
 		type: 'Timeout',
 		message: 'Request Timeout'
 	}, {
+		code: 409,
+		type: 'AlreadyRegistered',
+		message: 'User is already registered'
+	}, {
 		code: 500,
 		type: 'UnexpectedError',
 		message: 'Unexpected error occured'
