@@ -1,8 +1,9 @@
 module.exports = (data, whatToRemove) => {
+	let mutableData = ({...data});
 	if (Array.isArray(whatToRemove) || whatToRemove.length) {
 		whatToRemove.forEach((key) => {
-			delete data[key];
+			delete mutableData[key];
 		});
 	}
-	return data;
+	return mutableData;
 };

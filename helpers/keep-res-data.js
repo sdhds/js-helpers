@@ -1,10 +1,11 @@
 module.exports = (data, whatToKeep) => {
+	let mutableData = ({...data});
 	if (Array.isArray(whatToKeep) || whatToKeep.length) {
-		Object.keys(data).forEach((key) => {
+		Object.keys(mutableData).forEach((key) => {
             if (whatToKeep.indexOf(key) === -1) {
-                delete data[key];
+                delete mutableData[key];
             }
 		});
 	}
-	return data;
+	return mutableData;
 };
