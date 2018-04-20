@@ -1,5 +1,5 @@
 module.exports = (data, whatToKeep) => {
-	let mutableData = ({...data});
+	let mutableData = Object.assign({}, data);
 	if (Array.isArray(whatToKeep) || whatToKeep.length) {
 		Object.keys(mutableData).forEach((key) => {
             if (whatToKeep.indexOf(key) === -1) {
