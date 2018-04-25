@@ -8,6 +8,7 @@ const keepResData = require('./helpers/keep-res-data');
 const isArrayOfIdsValid = require('./helpers/is-array-of-ids-valid');
 const regex = require('./helpers/regex');
 const findFirstVideo = require('./helpers/find-first-video')
+const convertDate = require('./helpers/convert-date');
 
 module.exports = {
 	generateReqId, //use it to generate request id at frontend
@@ -19,5 +20,6 @@ module.exports = {
 	keepResData,
 	isArrayOfIdsValid,
 	regex,
-	findFirstVideo
+	findFirstVideo,
+	convertDate
 }
