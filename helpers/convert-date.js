@@ -9,7 +9,13 @@ const normaliseValue = (value) => {
 
 module.exports = (date, format) => {
 	let _now = Date.now();
-	if (typeof date === 'number') {
+	if (!date) {
+		date = _now;
+	}
+	if (typeof date.valueOf === 'function') {
+		date = date.valueOf();
+	}
+	if (typeof date === 'number' && _date !== _now) {
 		if ((date < (_now / 600))) {
 			date *= 1000;
 		}
