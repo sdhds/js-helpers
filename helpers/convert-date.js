@@ -30,6 +30,8 @@ module.exports = (date, format) => {
 	let hours = normaliseValue(_date.getHours());
 	let minutes = normaliseValue(_date.getMinutes());
 	let seconds = normaliseValue(_date.getSeconds());
+	let epochMs = _date.valueOf();
+	let epochSec = Math.round(_date.valueOfOf() / 1000);
 
 	return format
 	.replace(/yyyy/g, year)
@@ -38,5 +40,7 @@ module.exports = (date, format) => {
 	.replace(/dd/g, day)
 	.replace(/hh/g, hours)
 	.replace(/min/g, minutes)
-	.replace(/ss/g, seconds);
+	.replace(/ss/g, seconds)
+	.replace(/epochMs/g, epochMs)
+	.replace(/epochSec/g, epochSec)
 }
