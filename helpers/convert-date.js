@@ -31,7 +31,7 @@ module.exports = (date, format) => {
 	let minutes = normaliseValue(_date.getMinutes());
 	let seconds = normaliseValue(_date.getSeconds());
 	let epochMs = _date.valueOf();
-	let epochSec = Math.round(_date.valueOfOf() / 1000);
+	let epochSec = Math.round(_date.valueOf() / 1000);
 
 	return format
 	.replace(/yyyy/g, year)
