@@ -45,6 +45,11 @@ const errorsMessages = [
 		type: 'TemplateMissing',
 		message: 'Template not exist'
 	}, {
+		// only for AUTH server
+		code: 400,
+		type: 'InsecurePassword',
+		message: 'Provided password does not meet minimum security requirements'
+	}, {
 		// fallback for all requests, except GET. If GET, please use 302 redirect to auth page
 		code: 401,
 		type: 'Unauthorized',
