@@ -15,7 +15,7 @@ module.exports = (date, format) => {
 	if (typeof date.valueOf === 'function') {
 		date = date.valueOf();
 	}
-	if (typeof date === 'number' && _date !== _now) {
+	if (typeof date === 'number' && date !== _now) {
 		if ((date < (_now / 600))) {
 			date *= 1000;
 		}
