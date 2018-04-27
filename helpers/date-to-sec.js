@@ -1,0 +1,1 @@
+module.exports = (d) =>  Math.floor(new Date(d).getTime() / 1000);

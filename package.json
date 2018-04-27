@@ -1,6 +1,6 @@
 {
   "name": "js-helpers",
-  "version": "1.12.11",
+  "version": "1.12.12",
   "description": "Custom js helpers collection",
   "main": "index.js",
   "repository": "git@github.com:sdhds/http-code-errors.git",

@@ -10,6 +10,7 @@ const regex = require('./helpers/regex');
 const findFirstVideo = require('./helpers/find-first-video')
 const convertDate = require('./helpers/convert-date');
 const dateWithoutMs = require('./helpers/date-without-ms');
+const dateToSec = require('./helpers/date-to-sec');
 
 module.exports = {
 	generateReqId, //use it to generate request id at frontend
@@ -23,5 +24,6 @@ module.exports = {
 	regex,
 	findFirstVideo,
 	convertDate,
-	dateWithoutMs
+	dateWithoutMs,
+	dateToSec
 }
