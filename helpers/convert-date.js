@@ -24,7 +24,7 @@ module.exports = (date, format) => {
 	let _date = new Date(date);
 	let year = _date.getFullYear();
 	let month = normaliseValue(_date.getMonth() + 1);
-	let monthName = Months[_date.getMonth() + 1];
+	let monthName = Months[_date.getMonth()];
 	let weekDay = _date.getDay();
 	let day = normaliseValue(_date.getDate());
 	let hours = normaliseValue(_date.getHours());
