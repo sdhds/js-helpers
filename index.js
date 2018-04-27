@@ -11,6 +11,7 @@ const findFirstVideo = require('./helpers/find-first-video')
 const convertDate = require('./helpers/convert-date');
 const dateWithoutMs = require('./helpers/date-without-ms');
 const dateToSec = require('./helpers/date-to-sec');
+const convertToEncodeURI = require('./helpers/convert-to-encode-uri');
 
 module.exports = {
 	generateReqId, //use it to generate request id at frontend
@@ -25,5 +26,6 @@ module.exports = {
 	findFirstVideo,
 	convertDate,
 	dateWithoutMs,
-	dateToSec
+	dateToSec,
+	convertToEncodeURI
 }
