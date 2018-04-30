@@ -49,6 +49,16 @@ const errorsMessages = [
 		code: 400,
 		type: 'InsecurePassword',
 		message: 'Provided password does not meet minimum security requirements'
+	},  {
+		// only for PostgreSQL 
+		code: 400, 
+		type: 'DuplicateFieldError', 
+		message: 'The field you passed already has in table' 
+	}, { 
+		// only for PostgreSQL 
+		code: 400, 
+		type: 'NonNullFieldError', 
+		message: 'The field you passed should not be null, but you passed null' 
 	}, {
 		// fallback for all requests, except GET. If GET, please use 302 redirect to auth page
 		code: 401,
