@@ -35,8 +35,8 @@ const logToConsole = (data) => {
 
 const sendToLogger = (data) => {
 	data.server_id = serverName;
-	data = util.inspect(data, utilInspectOptions); // deeply extract large complicated objects
 	if (process.env.NODE_ENV != 'production') {
+		data = util.inspect(data, utilInspectOptions); // deeply extract large complicated objects
 		logToConsole(data);
 	}
 	return axios({
@@ -49,7 +49,7 @@ const sendToLogger = (data) => {
 		data
 	})
 		.catch((er) => {
-			console.error(er);
+			console.error(CONSOLE_RESET, 'LOG server not responding, status:', er.response.status);
 			logToConsole(data);
 		});
 };
