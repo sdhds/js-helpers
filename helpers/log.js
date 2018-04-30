@@ -37,7 +37,7 @@ const sendToLogger = (data) => {
 	data.server_id = serverName;
 	if (process.env.NODE_ENV != 'production') {
 		data = util.inspect(data, utilInspectOptions); // deeply extract large complicated objects
-		logToConsole(data);
+		return logToConsole(data);
 	}
 	return axios({
 		method: 'post',
