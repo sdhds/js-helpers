@@ -54,6 +54,11 @@ const errorsMessages = [
 		code: 400, 
 		type: 'DuplicateFieldError', 
 		message: 'The field you passed already has in table' 
+	}, {
+		// only for PostgreSQL 
+		code: 400, 
+		type: 'InvalidDateFormatError', 
+		message: 'You passed wrong Date format' 
 	}, { 
 		// only for PostgreSQL 
 		code: 400, 
