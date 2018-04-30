@@ -1,9 +1,44 @@
 const axios = require('axios');
+const util = require('util')
 const generateReqId = require('./generate-req-id');
 const serverName = require('./get-server-name');
 
+const CONSOLE_FONT_COLOR_RED = `\x1b[31m`;
+const CONSOLE_FONT_COLOR_YELLOW = `\x1b[33m`;
+const CONSOLE_FONT_COLOR_DEBUG = `\x1b[34m`;
+const CONSOLE_RESET = `\x1b[0m`;
+const utilInspectOptions = {
+	showHidden: false,
+	depth: null,
+	maxArrayLength: null
+}
+
+const logToConsole = (data) => {
+	switch (data.log_level) {
+		case 'DEBUG' :
+			console.log(CONSOLE_FONT_COLOR_DEBUG, data);
+			break;
+		case 'INFO' :
+			console.log(CONSOLE_FONT_COLOR_YELLOW, data);
+			break;
+		case 'WARN' :
+			console.log(CONSOLE_FONT_COLOR_YELLOW, data);
+			break;
+		case 'ERROR' :
+		case 'FATAL' :
+			console.log(CONSOLE_FONT_COLOR_RED, data);
+			break;
+		default :
+			console.log(CONSOLE_RESET, data);
+	}
+}
+
 const sendToLogger = (data) => {
-	data.server_id = process.env.MY_POD_NAME || '';
+	data.server_id = serverName;
+	data = util.inspect(data, utilInspectOptions); // deeply extract large complicated objects
+	if (process.env.NODE_ENV != 'production') {
+		logToConsole(data);
+	}
 	return axios({
 		method: 'post',
 		headers: {
@@ -12,12 +47,11 @@ const sendToLogger = (data) => {
 		},
 		url: 'https://logs.kube-test.isina.com/logs',
 		data
-	}).then(() => {
-		// temporary
-		console.log('Log req send');
-	}).catch((er) => {
-		console.error(er);
-	});
+	})
+		.catch((er) => {
+			console.error(er);
+			logToConsole(data);
+		});
 };
 
 const debug = (message, data) => {
