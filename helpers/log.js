@@ -20,27 +20,32 @@ const sendToLogger = (data) => {
 	});
 };
 
-const debug = (data) => {
+const debug = (message, data) => {
+	data.message = message;
 	data.log_level = 'DEBUG';
 	return sendToLogger(data);
 };
 
-const info = (data) => {
+const info = (message, data) => {
+	data.message = message;
 	data.log_level = 'INFO';
 	return sendToLogger(data);
 };
 
-const warn = (data) => {
+const warn = (message, data) => {
+	data.message = message;
 	data.log_level = 'WARN';
 	return sendToLogger(data);
 };
 
-const error = (data) => {
+const error = (message, data) => {
+	data.message = message;
 	data.log_level = 'ERROR';
 	return sendToLogger(data);
 };
 
-const fatal = (data) => {
+const fatal = (message, data) => {
+	data.message = message;
 	data.log_level = 'FATAL';
 	return sendToLogger(data);
 };
