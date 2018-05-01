@@ -14,7 +14,7 @@ const utilInspectOptions = {
 	depth: null,
 	maxArrayLength: null
 }
-const start = now();
+const start = now.getTime();
 const timing = process.env.NODE_ENV === 'dev'; // set to false if you don't want see timing in log
 
 const logToConsole = (data) => {
@@ -22,7 +22,7 @@ const logToConsole = (data) => {
 	let time = '';
 
 	if (timing) {
-		time = `Completed in ${((now() - start) / 1000).toFixed(2)} seconds`;
+		time = `Completed in ${((now.getTime() - start) / 1000).toFixed(2)} seconds`;
 	}
 	switch (data.log_level) {
 		case 'DEBUG' :
