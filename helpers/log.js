@@ -55,30 +55,35 @@ const sendToLogger = (data) => {
 };
 
 const debug = (message, data) => {
+  if (typeof(data) === 'undefined') data = {};
 	data.message = message;
 	data.log_level = 'DEBUG';
 	return sendToLogger(data);
 };
 
 const info = (message, data) => {
+  if (typeof(data) === 'undefined') data = {};
 	data.message = message;
 	data.log_level = 'INFO';
 	return sendToLogger(data);
 };
 
 const warn = (message, data) => {
+  if (typeof(data) === 'undefined') data = {};
 	data.message = message;
 	data.log_level = 'WARN';
 	return sendToLogger(data);
 };
 
 const error = (message, data) => {
+  if (typeof(data) === 'undefined') data = {};
 	data.message = message;
 	data.log_level = 'ERROR';
 	return sendToLogger(data);
 };
 
 const fatal = (message, data) => {
+  if (typeof(data) === 'undefined') data = {};
 	data.message = message;
 	data.log_level = 'FATAL';
 	return sendToLogger(data);
