@@ -3,6 +3,7 @@ const util = require('util')
 const generateReqId = require('./generate-req-id');
 const serverName = require('./get-server-name');
 const commonHelpers = require('./common-helpers');
+const now = require('./timer');
 
 const CONSOLE_FONT_COLOR_RED = `\x1b[31m`;
 const CONSOLE_FONT_COLOR_YELLOW = `\x1b[33m`;
@@ -13,7 +14,7 @@ const utilInspectOptions = {
 	depth: null,
 	maxArrayLength: null
 }
-const start = performance.now();
+const start = now();
 const timing = process.env.NODE_ENV === 'dev'; // set to false if you don't want see timing in log
 
 const logToConsole = (data) => {
@@ -21,7 +22,7 @@ const logToConsole = (data) => {
 	let time = '';
 
 	if (timing) {
-		time = `Completed in ${((performance.now() - start) / 1000).toFixed(2)} seconds`;
+		time = `Completed in ${((now() - start) / 1000).toFixed(2)} seconds`;
 	}
 	switch (data.log_level) {
 		case 'DEBUG' :
