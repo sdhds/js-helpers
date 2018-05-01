@@ -3,7 +3,6 @@ const util = require('util')
 const generateReqId = require('./generate-req-id');
 const serverName = require('./get-server-name');
 const commonHelpers = require('./common-helpers');
-const now = require('./timer');
 
 const CONSOLE_FONT_COLOR_RED = `\x1b[31m`;
 const CONSOLE_FONT_COLOR_YELLOW = `\x1b[33m`;
@@ -14,14 +13,14 @@ const utilInspectOptions = {
 	depth: null,
 	maxArrayLength: null
 }
-const start = now.getTime();
-const timing = process.env.NODE_ENV === 'dev'; // set to false if you don't want see timing in log
+const start = Date.now();
+const isDev = process.env.NODE_ENV != 'production';
 
 const logToConsole = (data, log_level) => {
 	let time = '';
 
-	if (timing) {
-		time = Math.round((now.getTime() - start) / 1000) + 'sec:';
+	if (isDev) {
+		time = Math.round((Date.now() - start) / 1000);
 	}
 
 	switch (log_level) {
@@ -53,7 +52,7 @@ const logToConsole = (data, log_level) => {
 const sendToLogger = (data, log_level) => {
 	data = commonHelpers.pickEmpty(data);
 	data.server_id = serverName;
-	if (process.env.NODE_ENV != 'production') {
+	if (isDev) {
 		data = util.inspect(data, utilInspectOptions); // deeply extract large complicated objects
 		return logToConsole(data, log_level);
 	}
