@@ -2,6 +2,7 @@ const axios = require('axios');
 const util = require('util')
 const generateReqId = require('./generate-req-id');
 const serverName = require('./get-server-name');
+const commonHelpers = require('./common-helpers');
 
 const CONSOLE_FONT_COLOR_RED = `\x1b[31m`;
 const CONSOLE_FONT_COLOR_YELLOW = `\x1b[33m`;
@@ -12,24 +13,37 @@ const utilInspectOptions = {
 	depth: null,
 	maxArrayLength: null
 }
+const start = performance.now();
+const timing = process.env.NODE_ENV === 'dev'; // set to false if you don't want see timing in log
 
 const logToConsole = (data) => {
+	data = commonHelpers.pickEmpty(data);
+	let time = '';
+
+	if (timing) {
+		time = `Completed in ${((performance.now() - start) / 1000).toFixed(2)} seconds`;
+	}
 	switch (data.log_level) {
 		case 'DEBUG' :
-			console.log(CONSOLE_FONT_COLOR_DEBUG, data);
+			console.log(CONSOLE_FONT_COLOR_DEBUG, `DEBUG: ${JSON.stringify(data, null, 2)}
+			${time}`);
 			break;
 		case 'INFO' :
-			console.log(CONSOLE_FONT_COLOR_YELLOW, data);
+			console.log(CONSOLE_FONT_COLOR_YELLOW, `INFO: ${JSON.stringify(data, null, 2)}
+			${time}`);
 			break;
 		case 'WARN' :
-			console.log(CONSOLE_FONT_COLOR_YELLOW, data);
+			console.log(CONSOLE_FONT_COLOR_YELLOW, `WARN: ${JSON.stringify(data, null, 2)}
+			${time}`);
 			break;
 		case 'ERROR' :
 		case 'FATAL' :
-			console.log(CONSOLE_FONT_COLOR_RED, data);
+			console.log(CONSOLE_FONT_COLOR_RED, `${data.log_level}: ${JSON.stringify(data, null, 2)}
+			${time}`);
 			break;
 		default :
-			console.log(CONSOLE_RESET, data);
+			console.log(CONSOLE_RESET, `LOG: ${JSON.stringify(data, null, 2)}
+			${time}`);
 	}
 }
 

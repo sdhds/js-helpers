@@ -13,6 +13,7 @@ const convertDate = require('./helpers/convert-date');
 const dateWithoutMs = require('./helpers/date-without-ms');
 const dateToSec = require('./helpers/date-to-sec');
 const convertToEncodeURI = require('./helpers/convert-to-encode-uri');
+const commonHelpers = require('./helpers/common-helpers');
 
 module.exports = {
 	log,
@@ -29,5 +30,6 @@ module.exports = {
 	convertDate,
 	dateWithoutMs,
 	dateToSec,
-	convertToEncodeURI
+	convertToEncodeURI,
+	commonHelpers
 }
