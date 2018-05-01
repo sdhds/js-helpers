@@ -20,7 +20,7 @@ const logToConsole = (data, log_level) => {
 	let time = '';
 
 	if (isDev) {
-		time = Math.round((Date.now() - start) / 1000);
+		time = Math.round((Date.now() - start) / 1000) + ':';
 	}
 
 	switch (log_level) {
