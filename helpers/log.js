@@ -19,32 +19,47 @@ const timing = process.env.NODE_ENV === 'dev'; // set to false if you don't want
 
 const logToConsole = (data) => {
 	data = commonHelpers.pickEmpty(data);
-	let time = '';
+	let time;
 
 	if (timing) {
 		time = `Completed in ${((now.getTime() - start) / 1000).toFixed(2)} seconds`;
 	}
 	switch (data.log_level) {
 		case 'DEBUG' :
-			console.log(CONSOLE_FONT_COLOR_DEBUG, `DEBUG: ${JSON.stringify(data, null, 2)}
-			${time}`);
+			console.log(CONSOLE_FONT_COLOR_DEBUG, 'DEBUG: ');
+			console.log(CONSOLE_FONT_COLOR_DEBUG, data);
+			if (time) {
+				console.log(CONSOLE_FONT_COLOR_YELLOW, time);
+			}
 			break;
 		case 'INFO' :
-			console.log(CONSOLE_FONT_COLOR_YELLOW, `INFO: ${JSON.stringify(data, null, 2)}
-			${time}`);
+			console.log(CONSOLE_FONT_COLOR_YELLOW, 'INFO: ');
+			console.log(CONSOLE_FONT_COLOR_YELLOW, data);
+			if (time) {
+				console.log(CONSOLE_FONT_COLOR_YELLOW, time);
+			}
 			break;
 		case 'WARN' :
-			console.log(CONSOLE_FONT_COLOR_YELLOW, `WARN: ${JSON.stringify(data, null, 2)}
-			${time}`);
+			console.log(CONSOLE_FONT_COLOR_YELLOW, 'WARN: ');
+			console.log(CONSOLE_FONT_COLOR_YELLOW, data);
+			if (time) {
+				console.log(CONSOLE_FONT_COLOR_YELLOW, time);
+			}
 			break;
 		case 'ERROR' :
 		case 'FATAL' :
-			console.log(CONSOLE_FONT_COLOR_RED, `${data.log_level}: ${JSON.stringify(data, null, 2)}
-			${time}`);
+			console.log(CONSOLE_FONT_COLOR_RED, data.log_level + ': ');
+			console.log(CONSOLE_FONT_COLOR_RED, data);
+			if (time) {
+				console.log(CONSOLE_FONT_COLOR_YELLOW, time);
+			}
 			break;
 		default :
-			console.log(CONSOLE_RESET, `LOG: ${JSON.stringify(data, null, 2)}
-			${time}`);
+			console.log(CONSOLE_RESET, 'LOG: ');
+			console.log(CONSOLE_RESET, data);
+			if (time) {
+				console.log(CONSOLE_FONT_COLOR_YELLOW, time);
+			}
 	}
 }
 

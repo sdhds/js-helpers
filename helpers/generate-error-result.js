@@ -27,7 +27,8 @@ module.exports = (req, res, type, stackTrace) => {
 		if (stackTrace) {
 			logingError.stackTrace = (typeof stackTrace === 'object') ? JSON.stringify(stackTrace) : stackTrace;
 		}
-		console.error(logingError);
+		// To-Do: this is temporary, not always
+		// console.error(logingError);
 	}
 	return res.status(error.code).json(error);
 }
