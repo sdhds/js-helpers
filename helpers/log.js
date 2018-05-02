@@ -2,7 +2,7 @@ const axios = require('axios');
 const util = require('util')
 const generateReqId = require('./generate-req-id');
 const serverName = require('./get-server-name');
-const commonHelpers = require('./common-helpers');
+const pickEmpty = require('./pick-empty');
 
 const CONSOLE_FONT_COLOR_RED = `\x1b[31m`;
 const CONSOLE_FONT_COLOR_YELLOW = `\x1b[33m`;
@@ -50,7 +50,7 @@ const logToConsole = (data, log_level) => {
 }
 
 const sendToLogger = (data, log_level) => {
-	data = commonHelpers.pickEmpty(data);
+	data = pickEmpty(data);
 	data.server_id = serverName;
 	if (isDev) {
 		data = util.inspect(data, utilInspectOptions); // deeply extract large complicated objects

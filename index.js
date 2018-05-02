@@ -13,7 +13,9 @@ const convertDate = require('./helpers/convert-date');
 const dateWithoutMs = require('./helpers/date-without-ms');
 const dateToSec = require('./helpers/date-to-sec');
 const convertToEncodeURI = require('./helpers/convert-to-encode-uri');
-const commonHelpers = require('./helpers/common-helpers');
+const pickEmpty = require('./helpers/pick-empty');
+const oldMaskId = require('./helpers/old-mask-id');
+const removeDuplicates = require('./helpers/remove-duplicates');
 
 module.exports = {
 	log,
@@ -31,5 +33,7 @@ module.exports = {
 	dateWithoutMs,
 	dateToSec,
 	convertToEncodeURI,
-	commonHelpers
+	pickEmpty,
+	oldMaskId,
+	removeDuplicates
 }
