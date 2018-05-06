@@ -16,6 +16,7 @@ const convertToEncodeURI = require('./helpers/convert-to-encode-uri');
 const pickEmpty = require('./helpers/pick-empty');
 const oldMaskId = require('./helpers/old-mask-id');
 const removeDuplicates = require('./helpers/remove-duplicates');
+const typeMediaReg = require('./helpers/type-media-reg');
 
 module.exports = {
 	log,
@@ -35,5 +36,6 @@ module.exports = {
 	convertToEncodeURI,
 	pickEmpty,
 	oldMaskId,
-	removeDuplicates
+	removeDuplicates,
+	typeMediaReg
 }
