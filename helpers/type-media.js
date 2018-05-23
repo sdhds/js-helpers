@@ -1,7 +1,7 @@
 const typeMediaReg = require('./type-media-reg');
 const supportedTypes = ['youtube', 'vimeo'];
 
-const continue  = (array, element) => {
+const cont  = (array, element) => {
 	var index = 0;
 	while (index < array.length) {
 		if (element === array[index]) {
@@ -12,7 +12,7 @@ const continue  = (array, element) => {
 }
 
 module.exports = (str) => {
-	const typeMedia = typeMediaReg.filter(type => ( continue(supportedTypes, type.provider)));
+	const typeMedia = typeMediaReg.filter(type => ( cont(supportedTypes, type.provider)));
 	console.log(typeMedia);
 	let result1 = null;
 	typeMedia.map(type => {
