@@ -1,4 +1,4 @@
-import typeMediaReg from './type-media-reg';
+const typeMediaReg = require('./type-media-reg');
 
 module.exports = (str) => {
 	typeMediaReg.map(type => {
