@@ -7,7 +7,7 @@ module.exports = (str) => {
 		.some( ({reg, provider}) => {
 			const result = str.match(reg);
 			if (result != null) {
-				resultObj = {provider: provider, id: result[result.length - 1]};
+				resultObj = {provider, id: result[result.length - 1]};
 				return true;
 			}		
 		});
