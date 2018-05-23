@@ -8,6 +8,7 @@ module.exports = (str) => {
 			const result = str.match(type.reg);
 			if (result != null) {
 				resultObj = {provider: type.provider, id: result[result.length - 1]};
+				return true;
 			}		
 		});
 	return resultObj;	
