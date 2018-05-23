@@ -3,7 +3,7 @@ const supportedTypes = ['youtube', 'vimeo'];
 
 module.exports = (str) => {
 	let resultObj = false;
-	(typeMediaReg.filter(type => ( supportedTypes.indexOf(type.provider) > -1)))
+	typeMediaReg.filter(type => ( supportedTypes.indexOf(type.provider) > -1))
 		.some(type => {
 			const result = str.match(type.reg);
 			if (result != null) {
