@@ -1,7 +1,7 @@
 const typeMediaReg = require('./type-media-reg');
 const supportedTypes = ['youtube', 'vimeo'];
 
-function continue(array, element) {
+continue(array, element) {
 	var index = 0;
 	while (index < array.length) {
 		if (element === array[index]) {
