@@ -12,7 +12,7 @@ const cont  = (array, element) => {
 }
 
 module.exports = (str) => {
-	const typeMedia = typeMediaReg.filter(type => ( cont(supportedTypes, type.provider)));
+	const typeMedia = typeMediaReg.filter(type => ( supportedTypes.indexOf(type.provider) > -1));
 	console.log(typeMedia);
 	let result1 = null;
 	typeMedia.map(type => {
