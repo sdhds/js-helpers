@@ -1,4 +1,4 @@
-import { typeMediaReg } from 'helpers';
+import typeMediaReg from './type-media-reg';
 
 module.exports = (str) => {
 	typeMediaReg.map(type => {
