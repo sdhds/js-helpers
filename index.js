@@ -17,6 +17,7 @@ const pickEmpty = require('./helpers/pick-empty');
 const oldMaskId = require('./helpers/old-mask-id');
 const removeDuplicates = require('./helpers/remove-duplicates');
 const typeMediaReg = require('./helpers/type-media-reg');
+const typeMedia = require('./helpers/type-media');
 
 module.exports = {
 	log,
@@ -37,5 +38,6 @@ module.exports = {
 	pickEmpty,
 	oldMaskId,
 	removeDuplicates,
-	typeMediaReg
+	typeMediaReg,
+	typeMedia
 }
