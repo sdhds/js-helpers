@@ -51,8 +51,24 @@ const matchUserWithImageUrls = async (user, IMAGE_LOADER_API) => {
     }
 };
 
+const removeImages = (images, IMAGE_LOADER_API) => {
+    const options = {
+        method: 'delete',
+        headers: {
+            'x-request-id': generateReqId()
+        },
+        url: `${IMAGE_LOADER_API}/api/v1/images`,
+        data: {
+            image_ids: images
+        }
+    };
+
+    return axios(options);
+};
+
 module.exports = {
     getImageIdFromUrl,
     getUrlFromImageObj,
-    matchUserWithImageUrls
+    matchUserWithImageUrls,
+    removeImages
 };
