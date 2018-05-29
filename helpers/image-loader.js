@@ -1,5 +1,6 @@
-import axios from 'axios';
-import { log, generateReqId } from '../index';
+const axios = require('axios');
+const log = require('./log');
+const generateReqId = require('./generate-req-id');
 
 const getImageFromBucket = (imageId, IMAGE_LOADER_API) => {
     const options = {
