@@ -18,6 +18,7 @@ const oldMaskId = require('./helpers/old-mask-id');
 const removeDuplicates = require('./helpers/remove-duplicates');
 const typeMediaReg = require('./helpers/type-media-reg');
 const typeMedia = require('./helpers/type-media');
+const imageLoader = require('./helpers/image-loader');
 
 module.exports = {
 	log,
@@ -39,5 +40,6 @@ module.exports = {
 	oldMaskId,
 	removeDuplicates,
 	typeMediaReg,
-	typeMedia
+	typeMedia,
+    imageLoader
 }
