@@ -19,6 +19,7 @@ const removeDuplicates = require('./helpers/remove-duplicates');
 const typeMediaReg = require('./helpers/type-media-reg');
 const typeMedia = require('./helpers/type-media');
 const imageLoader = require('./helpers/image-loader');
+const checkEmptyStringField = require('./helpers/check-empty-string');
 
 module.exports = {
 	log,
@@ -41,5 +42,6 @@ module.exports = {
 	removeDuplicates,
 	typeMediaReg,
 	typeMedia,
-    imageLoader
+    imageLoader,
+    checkEmptyStringField
 }

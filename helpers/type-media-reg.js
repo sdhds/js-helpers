@@ -15,7 +15,7 @@ module.exports = [
 		provider: 'mp4'
 	},
 	{
-		reg: /(http[s]?:\/\/){0,1}(?:www\.)?([a-zA-Z0-9_-]+)(.mp3)/,
+		reg: /(http[s]?:\/\/){0,1}(?:www\.)?([a-zA-Z0-9_-]+)(.mp3)(\?.+)/,
 		type: 'audio',
 		provider: 'mp3'
 	}
