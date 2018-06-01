@@ -16,6 +16,21 @@ const getImageFromBucket = (imageId, IMAGE_LOADER_API) => {
     return axios(options);
 };
 
+const getImagesFromBucket = (imagesIds, IMAGE_LOADER_API) => {
+    const options = {
+        method: 'POST',
+        headers: {
+            'x-request-id': generateReqId()
+        },
+        url: `${IMAGE_LOADER_API}/api/v1/images/get`,
+        data: {
+            image_ids: imagesIds
+        }
+    };
+
+    return axios(options);
+};
+
 const getUrlFromImageObj = image =>
     (`${image.path}/${image.extracted ? image.extracted : image.resolutions[0].original}`);
 
@@ -66,9 +81,23 @@ const removeImages = (images, IMAGE_LOADER_API) => {
     return axios(options);
 };
 
+const getImagesUrls = (imagesIds, IMAGE_LOADER_API) =>
+    getImagesFromBucket(imagesIds, IMAGE_LOADER_API)
+        .then(response => {
+            if (response && response.data && response.data.data) {
+                return response.data.data.map(image =>
+                    getUrlFromImageObj(image)
+                );
+            }
+
+            return [];
+        });
+
 module.exports = {
     getImageIdFromUrl,
     getUrlFromImageObj,
     matchUserWithImageUrls,
-    removeImages
+    removeImages,
+    getImagesFromBucket,
+    getImagesUrls
 };
