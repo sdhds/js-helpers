@@ -4,7 +4,6 @@ module.exports = (obj) => {
 	for (let propName in obj) {
 		if (obj[propName] === null
 			|| obj[propName] === undefined
-			|| isNaN(obj[propName])
 			|| checkEmptyStringField(obj[propName]) === null) {
 			delete obj[propName];
 		}
