@@ -20,6 +20,7 @@ const typeMediaReg = require('./helpers/type-media-reg');
 const typeMedia = require('./helpers/type-media');
 const imageLoader = require('./helpers/image-loader');
 const checkEmptyStringField = require('./helpers/check-empty-string');
+const profileScore = require('./helpers/profile-score');
 
 module.exports = {
 	log,
@@ -43,5 +44,6 @@ module.exports = {
 	typeMediaReg,
 	typeMedia,
     imageLoader,
-    checkEmptyStringField
+    checkEmptyStringField,
+    profileScore
 }
