@@ -32,7 +32,7 @@ const getImagesFromBucket = (imagesIds, IMAGE_LOADER_API) => {
 };
 
 const getUrlFromImageObj = image =>
-    (`${image.path}/${image.extracted ? image.extracted : image.resolutions[0].original}`);
+    image.format.original.url;
 
 const getImageIdFromUrl = imageUrl =>
     imageUrl.match(/[0-9a-f]{8}-[0-9a-f]{4}-5[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}/g).pop();
