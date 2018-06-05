@@ -27,8 +27,5 @@ module.exports = (user_fields) => {
 	if (location_now && location_now.city && location.country) {
 		result += 10;
 	}
-	if (has_paid_tracks) {
-		result += 5;
-	}
 	return result;
 };
