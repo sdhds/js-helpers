@@ -24,7 +24,7 @@ module.exports = (user_fields) => {
 	if (has_live) {
 		result += 20;
 	}
-	if (location_now && location_now.city && location.country) {
+	if (location_now && location_now.city && location_now.country) {
 		result += 10;
 	}
 	return result;
