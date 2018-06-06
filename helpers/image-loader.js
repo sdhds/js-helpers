@@ -2,42 +2,43 @@ const axios = require('axios');
 const log = require('./log');
 const generateReqId = require('./generate-req-id');
 
-const getImageFromBucket = (imageId, IMAGE_LOADER_API) => {
-    if (!imageId) {
-        return false
-    }
-
-    const options = {
-        method: 'get',
-        headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Content-Type': 'application/json',
-            'x-request-id': generateReqId()
-        },
-        url: `${IMAGE_LOADER_API}/api/v1/images/get/${imageId}`
-    };
-
-    return axios(options);
-};
-
-const getImagesFromBucket = (imagesIds, IMAGE_LOADER_API) => {
-    if (!imagesIds || !imagesIds.length) {
-        return false
-    }
-
-    const options = {
-        method: 'POST',
-        headers: {
-            'x-request-id': generateReqId()
-        },
-        url: `${IMAGE_LOADER_API}/api/v1/images/get`,
-        data: {
-            image_ids: imagesIds
-        }
-    };
-
-    return axios(options);
-};
+// const getImageFromBucket = (imageId, IMAGE_LOADER_API) => {
+//     if (!imageId) {
+//         return false
+//     }
+//
+//     const options = {
+//         method: 'get',
+//         headers: {
+//             'Access-Control-Allow-Origin': '*',
+//             'Content-Type': 'application/json',
+//             'x-request-id': generateReqId()
+//         },
+//         url: `${IMAGE_LOADER_API}/api/v1/images/get/${imageId}`
+//     };
+//
+//     return axios(options);
+// };
+//
+// const getImagesFromBucket = (imagesIds, IMAGE_LOADER_API) => {
+//     if (!imagesIds || !imagesIds.length) {
+//         return false
+//     }
+//
+//     const options = {
+//         method: 'POST',
+//         headers: {
+//             'x-request-id': generateReqId()
+//         },
+//         url: `${IMAGE_LOADER_API}/api/v1/images/get`,
+//         data: imagesIds.map(id => ({
+//             media_id: id,
+//             format: ['original']
+//         }))
+//     };
+//
+//     return axios(options);
+// };
 
 const getUrlFromImageObj = image =>
     image.format.original.url;
@@ -104,7 +105,5 @@ const removeImages = (images, IMAGE_LOADER_API) => {
 module.exports = {
     getImageIdFromUrl,
     getUrlFromImageObj,
-    removeImages,
-    getImagesFromBucket,
-    getImageFromBucket
+    removeImages
 };
