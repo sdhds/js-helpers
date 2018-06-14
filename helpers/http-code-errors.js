@@ -117,15 +117,19 @@ const errorsMessages = [
 		code: 408,
 		type: 'Timeout',
 		message: 'Request Timeout'
-  }, {
-    code: 409,
-    type: 'AlreadyRegistered',
-    message: 'User is already registered'
-  }, {
-    code: 409,
-    type: 'AlreadyVerified',
-    message: 'Email is already verified'
-  }, {
+	}, {
+		code: 409,
+		type: 'AlreadyRegistered',
+		message: 'User is already registered'
+	}, {
+		code: 409,
+		type: 'AlreadyVerified',
+		message: 'Email is already verified'
+	}, {
+		code: 409,
+		type: 'AlreadyDone',
+		message: 'This action is already happened'
+	}, {
 		code: 500,
 		type: 'UnexpectedError',
 		message: 'Unexpected error occured'
