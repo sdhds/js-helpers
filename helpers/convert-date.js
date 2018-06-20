@@ -43,4 +43,4 @@ module.exports = (date, format) => {
 	.replace(/ss/g, seconds)
 	.replace(/epochMs/g, epochMs)
 	.replace(/epochSec/g, epochSec)
-}
+};

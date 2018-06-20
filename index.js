@@ -21,6 +21,7 @@ const typeMedia = require('./helpers/type-media');
 const imageLoader = require('./helpers/image-loader');
 const checkEmptyStringField = require('./helpers/check-empty-string');
 const profileScore = require('./helpers/profile-score');
+const convertTime = require('./helpers/convert-time');
 
 module.exports = {
 	log,
@@ -43,7 +44,8 @@ module.exports = {
 	removeDuplicates,
 	typeMediaReg,
 	typeMedia,
-    imageLoader,
-    checkEmptyStringField,
-    profileScore
+	imageLoader,
+	checkEmptyStringField,
+	profileScore,
+	convertTime
 }
