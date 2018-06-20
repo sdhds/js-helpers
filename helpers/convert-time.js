@@ -6,6 +6,9 @@ const normaliseValue1 = (value) => {
 };
 
 module.exports = (sec, format) => {
+	if (!sec) {
+		sec = 0;
+	}
 	
 	let hours = normaliseValue1(Math.round(sec / 3600));
 	let minutes = normaliseValue1(Math.round((sec % 3600) / 60));
