@@ -22,6 +22,7 @@ const imageLoader = require('./helpers/image-loader');
 const checkEmptyStringField = require('./helpers/check-empty-string');
 const profileScore = require('./helpers/profile-score');
 const convertTime = require('./helpers/convert-time');
+const escapeHtml = require('./helpers/escape-html');
 
 module.exports = {
 	log,
@@ -47,5 +48,6 @@ module.exports = {
 	imageLoader,
 	checkEmptyStringField,
 	profileScore,
-	convertTime
+	convertTime,
+	escapeHtml
 }
