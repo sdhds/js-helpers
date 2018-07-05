@@ -32,11 +32,15 @@ module.exports = (date, format) => {
 	let seconds = normaliseValue(_date.getSeconds());
 	let epochMs = _date.valueOf();
 	let epochSec = Math.round(_date.valueOf() / 1000);
+	let usFormat = +hours > 12 ? 'PM' : 'AM';
+	let hours_usFormat = +hours > 12 ? +hours - 12 : hours;
 
 	return format
 	.replace(/yyyy/g, year)
 	.replace(/mm/g, month)
 	.replace(/month/g, monthName)
+	.replace(/hh\:us\:char/g, usFormat)
+	.replace(/hh\:us/g, hours_usFormat)
 	.replace(/dd/g, day)
 	.replace(/hh/g, hours)
 	.replace(/min/g, minutes)
