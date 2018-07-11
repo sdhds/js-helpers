@@ -50,20 +50,20 @@ const errorsMessages = [
 		type: 'InsecurePassword',
 		message: 'Provided password does not meet minimum security requirements'
 	},  {
-		// only for PostgreSQL 
-		code: 400, 
-		type: 'DuplicateFieldError', 
-		message: 'The field you passed already has in table' 
+		// only for PostgreSQL
+		code: 400,
+		type: 'DuplicateFieldError',
+		message: 'The field you passed already has in table'
 	}, {
-		// only for PostgreSQL 
-		code: 400, 
-		type: 'InvalidDateFormatError', 
-		message: 'You passed wrong Date format' 
-	}, { 
-		// only for PostgreSQL 
-		code: 400, 
-		type: 'NonNullFieldError', 
-		message: 'The field you passed should not be null, but you passed null' 
+		// only for PostgreSQL
+		code: 400,
+		type: 'InvalidDateFormatError',
+		message: 'You passed wrong Date format'
+	}, {
+		// only for PostgreSQL
+		code: 400,
+		type: 'NonNullFieldError',
+		message: 'The field you passed should not be null, but you passed null'
 	}, {
 		// fallback for all requests, except GET. If GET, please use 302 redirect to auth page
 		code: 401,
@@ -129,6 +129,10 @@ const errorsMessages = [
 		code: 409,
 		type: 'AlreadyDone',
 		message: 'This action is already happened'
+	}, , {
+		code: 409,
+		type: 'AlreadyExists',
+		message: 'This record is already exists'
 	}, {
 		code: 500,
 		type: 'UnexpectedError',
