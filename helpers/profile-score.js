@@ -9,7 +9,7 @@ module.exports = (user_fields) => {
 	if (phone) {
 		result += 10;
 	}
-	if (email && is_email_confirmed) {
+	if ((email || is_email_set) && is_email_confirmed) {
 		result += 20;
 	}
 	if (about) {
