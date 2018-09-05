@@ -1,7 +1,7 @@
 module.exports = (user_fields) => {
 	const {first_name, last_name, phone,
 		email, is_email_confirmed, about, avatar, cover_photo,
-		has_live, location_now} = user_fields;
+		has_live, location_now, is_email_set} = user_fields;
 	let result = 0;
 	if (first_name && last_name) {
 		result += 15;
