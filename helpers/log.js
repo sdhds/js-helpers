@@ -62,7 +62,7 @@ const sendToLogger = (data, log_level) => {
 				'Content-Type': 'application/json',
 				'x-request-id': generateReqId()
 			},
-			url: `http://${process.env.ISINA_KIBANA_SERVICE_HOST}/logs`,
+			url: `http://${process.env.ISINA_LOGS_SERVICE_HOST}/logs`,
 			data
 		})
 		.catch((er) => {
